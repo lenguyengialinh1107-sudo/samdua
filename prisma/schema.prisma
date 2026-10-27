@@ -1,0 +1,286 @@
+// Second Shot — Prisma schema (PostgreSQL)
+// Chạy: npx prisma migrate dev  (dev) hoặc npx prisma migrate deploy (production)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Người dùng & bảng tương thích Auth.js
+// Hiện tại app dùng Credentials provider (JWT session). Account/Session/
+// VerificationToken được khai báo để có thể gắn adapter Auth.js khi thêm OAuth.
+// ---------------------------------------------------------------------------
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  name          String?
+  image         String?
+  passwordHash  String?
+  phone         String?
+  role          Role      @default(CUSTOMER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  orders   Order[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ---------------------------------------------------------------------------
+// Danh mục sản phẩm
+// ---------------------------------------------------------------------------
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  sortOrder   Int       @default(0)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products Product[]
+
+  @@map("categories")
+}
+
+model Brand {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products Product[]
+
+  @@map("brands")
+}
+
+enum ProductType {
+  FILM_CAMERA
+  DIGITAL_CAMERA
+  COMPACT_CAMERA
+  LENS
+  ACCESSORY
+  FILM_ROLL
+}
+
+enum ProductCondition {
+  NEW
+  LIKE_NEW
+  EXCELLENT
+  GOOD
+  FAIR
+}
+
+model Product {
+  id        String @id @default(cuid())
+  name      String
+  slug      String @unique
+  sku       String @unique
+
+  description String
+  /// Giá bán, đơn vị VND (số nguyên). Không dùng floating-point cho tiền.
+  price       Int
+  /// Giá so sánh (giá gạch), nullable.
+  compareAtPrice Int?
+
+  categoryId String
+  brandId    String?
+  productType ProductType
+  condition   ProductCondition
+
+  /// Thông số kỹ thuật: mount, định dạng film/cảm biến, shutter, ISO...
+  cameraSpecs Json?
+
+  cosmeticCondition   String?
+  functionalCondition String?
+  includedAccessories String?
+  warrantyText        String?
+
+  stockQuantity Int     @default(0)
+  isPublished   Boolean @default(false)
+  isFeatured    Boolean @default(false)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  archivedAt DateTime?
+
+  category Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  brand    Brand?         @relation(fields: [brandId], references: [id], onDelete: SetNull)
+  images   ProductImage[]
+  orderItems OrderItem[]
+
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([isPublished, createdAt])
+  @@index([productType])
+  @@index([price])
+  @@map("products")
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  url       String
+  alt       String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@map("product_images")
+}
+
+// ---------------------------------------------------------------------------
+// Đơn hàng
+// ---------------------------------------------------------------------------
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPING
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  COD
+  BANK_TRANSFER
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  REFUNDED
+  FAILED
+}
+
+model Order {
+  id          String @id @default(cuid())
+  orderNumber String @unique
+
+  /// Nullable để hỗ trợ khách đặt hàng không cần tài khoản.
+  userId String?
+  user   User?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  // Ảnh chụp thông tin người nhận tại thời điểm đặt hàng
+  customerName    String
+  customerPhone   String
+  customerEmail   String?
+  shippingAddress String
+  note            String?
+
+  subtotal      Int @default(0)
+  shippingFee   Int @default(0)
+  discountTotal Int @default(0)
+  grandTotal    Int @default(0)
+
+  paymentMethod PaymentMethod @default(COD)
+  paymentStatus PaymentStatus @default(UNPAID)
+  orderStatus   OrderStatus   @default(PENDING)
+
+  /// Token tra cứu đơn cho khách vãng lai (chỉ hiển thị cho người biết token).
+  accessToken String @unique @default(cuid())
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  confirmedAt DateTime?
+  completedAt DateTime?
+  cancelledAt DateTime?
+
+  items OrderItem[]
+
+  @@index([userId])
+  @@index([orderStatus])
+  @@index([createdAt])
+  @@map("orders")
+}
+
+model OrderItem {
+  id      String @id @default(cuid())
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  /// Giữ nullable để không mất lịch sử khi sản phẩm bị xoá khỏi hệ thống.
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  // Snapshot tại thời điểm đặt hàng
+  productName String
+  productSku  String
+  unitPrice   Int
+  quantity    Int
+  lineTotal   Int
+
+  @@index([orderId])
+  @@map("order_items")
+}
+
+// ---------------------------------------------------------------------------
+// Cấu hình cửa hàng (phí vận chuyển... có thể sửa trong admin)
+// ---------------------------------------------------------------------------
+
+model StoreSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@map("store_settings")
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ảnh sản phẩm đang được cập nhật">
+  <rect width="800" height="600" fill="#efe7da" />
+  <g fill="none" stroke="#c8bba5" stroke-width="6" stroke-linejoin="round">
+    <rect x="250" y="215" width="300" height="190" rx="10" />
+    <path d="M330 215l24-38h92l24 38" />
+    <circle cx="400" cy="310" r="62" />
+    <circle cx="400" cy="310" r="34" />
+    <path d="M505 250h26" />
+  </g>
+  <text
+    x="400"
+    y="460"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="24"
+    fill="#6f665c"
+  >
+    Ảnh đang được cập nhật
+  </text>
+</svg>
