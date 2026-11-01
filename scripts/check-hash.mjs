@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 
 function hashKey(input) {
   let hash = 0x811c9dc5;
@@ -8,6 +10,30 @@ function hashKey(input) {
   return (hash >>> 0).toString(16).padStart(8, "0");
 }
 
-const prompt = "overhead cinematic shot of film photography essentials: a classic camera, several film rolls, an open notebook and a magnifying glass on a warm vintage wooden table, soft golden window light, analog cinematic aesthetic";
-const size = "landscape_4_3";
-console.log(hashKey(`${prompt}::${size}`) + ".jpg");
+const prompts = [
+  ["young person shooting with a vintage film camera in a cinematic street setting, warm golden sunlight, analog film grain, chừa khoảng trống bên trái cho văn bản", "landscape_4_3"],
+  ["vintage 35mm film SLR camera collection arranged on a warm cream linen surface with scattered film rolls and printed photographs, soft natural window light, muted terracotta and brown palette, editorial analog photography", "landscape_4_3"]
+];
+
+const demoDir = path.resolve('public/images/demo');
+
+for (const [prompt, size] of prompts) {
+  const key = `${prompt}::${size}`;
+  const hash = hashKey(key);
+  const fileName = `${hash}.jpg`;
+  const filePath = path.join(demoDir, fileName);
+  
+  console.log(`Prompt: ${prompt.substring(0, 50)}...`);
+  console.log(`Hash: ${hash}`);
+  
+  if (fs.existsSync(filePath)) {
+    const stats = fs.statSync(filePath);
+    console.log(`File: ${fileName} exists, size: ${stats.size} bytes`);
+    if (stats.size < 200000) {
+      console.log(`Warning: File size is small, might be a placeholder.`);
+    }
+  } else {
+    console.log(`File: ${fileName} DOES NOT exist`);
+  }
+  console.log('---');
+}

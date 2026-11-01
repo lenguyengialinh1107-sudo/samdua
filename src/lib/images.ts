@@ -19,17 +19,6 @@ function hashKey(input: string): string {
 }
 
 /**
- * Ảnh minh hoạ cho các khối giao diện (hero, banner danh mục).
- * Trả về file local đã tải sẵn — không gọi dịch vụ ngoài nên không bị chặn khi deploy.
- */
-export function demoImage(prompt: string, size: string = "landscape_4_3"): string {
-  const remoteUrl = `https://${TRAE_IMAGE_HOST}/api/ide/v1/text_to_image?prompt=${encodeURIComponent(
-    prompt,
-  )}&image_size=${size}`;
-  return toLocalImage(remoteUrl);
-}
-
-/**
  * Chuyển URL ảnh AI của Trae sang file local tương ứng.
  * Các URL khác (Cloudinary, ảnh do admin tải lên...) được giữ nguyên.
  */
@@ -37,8 +26,25 @@ export function toLocalImage(url: string): string {
   if (url.includes(TRAE_IMAGE_HOST)) {
     try {
       const parsed = new URL(url);
-      const prompt = parsed.searchParams.get("prompt");
+      const prompt = parsed.searchParams.get("prompt") || "";
       const size = parsed.searchParams.get("image_size") ?? "landscape_4_3";
+
+      // Ánh xạ các ảnh đặc biệt sang file có sẵn trong public/images/
+      if (prompt.includes("young person shooting with a vintage film camera")) {
+        return "/images/hero-analog.jpg";
+      }
+      if (prompt.includes("vintage 35mm film SLR camera collection")) {
+        return "/images/category-may-film.jpg";
+      }
+      if (prompt.includes("modern compact digital camera")) {
+        return "/images/category-digital-compact.jpg";
+      }
+      if (prompt.includes("neatly stacked 35mm film rolls")) {
+        return "/images/category-cuon-film.jpg";
+      }
+      if (prompt.includes("camera accessories flat lay")) {
+        return "/images/category-phu-kien.jpg";
+      }
 
       if (prompt) {
         const fileName = `${hashKey(`${prompt}::${size}`)}.jpg`;
@@ -49,6 +55,17 @@ export function toLocalImage(url: string): string {
     }
   }
   return url;
+}
+
+/**
+ * Ảnh minh hoạ cho các khối giao diện (hero, banner danh mục).
+ * Trả về file local đã tải sẵn — không gọi dịch vụ ngoài nên không bị chặn khi deploy.
+ */
+export function demoImage(prompt: string, size: string = "landscape_4_3"): string {
+  const remoteUrl = `https://${TRAE_IMAGE_HOST}/api/ide/v1/text_to_image?prompt=${encodeURIComponent(
+    prompt,
+  )}&image_size=${size}`;
+  return toLocalImage(remoteUrl);
 }
 
 export function productImageUrl(url?: string | null): string {
