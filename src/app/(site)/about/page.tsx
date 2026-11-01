@@ -51,10 +51,10 @@ export default function AboutPage() {
       <div className="relative aspect-[16/9] w-full overflow-hidden border border-border">
         <Image
           src={demoImage(
-            "editorial flat lay of vintage film cameras, a 35mm SLR, scattered film rolls and a notebook on a warm cream paper background, soft window light, muted terracotta and brown palette, top-down photography",
+            "interior of a cozy vintage film camera shop, wooden shelves filled with classic cameras and film rolls, warm analog cinematic lighting, professional darkroom atmosphere",
             "landscape_16_9",
           )}
-          alt="Máy ảnh film và cuộn phim được sắp đặt trên nền giấy kem"
+          alt="Không gian cửa hàng máy ảnh film Second Shot"
           fill
           unoptimized
           className="object-cover"

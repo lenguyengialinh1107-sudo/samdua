@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 import { StaticPage, StaticSection } from "@/components/layout/static-page";
 import { Button } from "@/components/ui/button";
+import { demoImage } from "@/lib/images";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,6 +29,20 @@ export default function ContactPage() {
       title="Ghé cửa hàng hoặc gọi cho chúng tôi"
       description="Chúng tôi sẵn sàng tư vấn chọn máy, kiểm tra máy cũ và hỗ trợ xử lý đơn hàng."
     >
+      <div className="relative aspect-[16/9] w-full overflow-hidden border border-border">
+        <Image
+          src={demoImage(
+            "a professional vintage wooden desk in a film camera shop, a classic camera, several 35mm film rolls, a modern laptop, and a small green plant, warm cinematic lighting, analog aesthetic",
+            "landscape_16_9",
+          )}
+          alt="Bàn làm việc tại cửa hàng với máy ảnh film, cuộn phim, laptop và cây xanh"
+          fill
+          unoptimized
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 768px"
+        />
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         {channels.map((channel) => (
           <div key={channel.label} className="border border-border bg-surface p-4">

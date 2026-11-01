@@ -84,6 +84,7 @@ export function ProductGallery({
             fill
             priority
             quality={90}
+            unoptimized
             sizes="(min-width: 1024px) 55vw, 100vw"
             className="object-contain"
           />
@@ -127,6 +128,7 @@ export function ProductGallery({
                   src={productImageUrl(image.url)}
                   alt=""
                   fill
+                  unoptimized
                   sizes="120px"
                   className="object-contain"
                 />
@@ -155,6 +157,7 @@ export function ProductGallery({
                 alt={active.alt ?? name}
                 fill
                 quality={90}
+                unoptimized
                 sizes="94vw"
                 className="object-contain"
               />

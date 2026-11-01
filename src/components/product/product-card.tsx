@@ -24,6 +24,7 @@ export function ProductCard({ product }: { product: ProductListItem }) {
           src={primaryImageUrl(product.images)}
           alt={product.images[0]?.alt ?? product.name}
           fill
+          unoptimized
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw"
           className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
         />

@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  BarChart3,
   FolderTree,
   LayoutDashboard,
+  Newspaper,
   Package,
   Settings,
   ShoppingCart,
@@ -14,8 +16,10 @@ import { cn } from "@/lib/utils";
 
 const items = [
   { href: "/admin", label: "Tổng quan", icon: LayoutDashboard, exact: true },
+  { href: "/admin/analytics", label: "Đo lường", icon: BarChart3, exact: false },
   { href: "/admin/products", label: "Sản phẩm", icon: Package, exact: false },
   { href: "/admin/orders", label: "Đơn hàng", icon: ShoppingCart, exact: false },
+  { href: "/admin/blog", label: "Blog", icon: Newspaper, exact: false },
   { href: "/admin/categories", label: "Danh mục & thương hiệu", icon: FolderTree, exact: false },
   { href: "/admin/settings", label: "Cấu hình", icon: Settings, exact: false },
 ];

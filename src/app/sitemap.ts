@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 
 import { site } from "@/lib/site";
+import { findPublishedBlogSlugs } from "@/server/repositories/blog.repository";
 import { findPublishedProductSlugs } from "@/server/repositories/product.repository";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${site.url}/`, changeFrequency: "daily", priority: 1 },
     { url: `${site.url}/products`, changeFrequency: "daily", priority: 0.9 },
+    { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${site.url}/about`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${site.url}/contact`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${site.url}/policies/shipping`, changeFrequency: "yearly", priority: 0.4 },
@@ -27,5 +29,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Nếu database chưa sẵn sàng, vẫn trả về sitemap cho các trang tĩnh.
   }
 
-  return [...staticRoutes, ...productRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = findPublishedBlogSlugs().map((post) => ({
+    url: `${site.url}/blog/${post.slug}`,
+    lastModified: post.updatedAt,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...blogRoutes];
 }

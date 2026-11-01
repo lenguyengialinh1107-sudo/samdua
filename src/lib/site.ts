@@ -35,6 +35,7 @@ export const mainNav = [
   { label: "Digital & Compact", href: "/products?category=digital-compact" },
   { label: "Lens", href: "/products?category=lens" },
   { label: "Phụ kiện", href: "/products?category=phu-kien" },
+  { label: "Blog", href: "/blog" },
   { label: "Giới thiệu", href: "/about" },
 ] as const;
 
@@ -61,6 +62,7 @@ export const footerNav = [
     title: "Về chúng tôi",
     links: [
       { label: "Giới thiệu", href: "/about" },
+      { label: "Blog", href: "/blog" },
       { label: "Quy trình kiểm tra máy", href: "/about#kiem-tra-may" },
       { label: "Tài khoản", href: "/account" },
     ],

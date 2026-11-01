@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, PackageCheck, ShieldCheck, Truck } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  MessageSquareQuote,
+  PackageCheck,
+  ShieldCheck,
+  Truck,
+} from "lucide-react";
 
 import { ProductCard } from "@/components/product/product-card";
 import { Badge } from "@/components/ui/badge";
@@ -13,12 +20,14 @@ import { getHomeSections } from "@/server/services/catalog.service";
 /** Ảnh minh hoạ cho từng danh mục trên trang chủ (demo). */
 const categoryArtwork: Record<string, string> = {
   "may-film":
-    "vintage 35mm film SLR camera collection arranged on a warm cream linen surface, soft editorial daylight",
+    "vintage 35mm film SLR camera collection arranged on a warm cream linen surface with scattered film rolls and printed photographs, soft natural window light, muted terracotta and brown palette, editorial analog photography",
   "digital-compact":
-    "modern compact digital camera and mirrorless body on cream paper background, minimal editorial product photography",
-  lens: "several prime camera lenses standing on a cream studio surface, soft warm light, editorial catalog style",
+    "modern compact digital camera and mirrorless body on warm cream paper, minimal editorial product photography, soft diffused daylight, muted terracotta and brown palette",
+  lens: "several prime camera lenses standing on a warm cream studio surface, soft diffused daylight, muted terracotta and brown palette, editorial catalog style",
+  "cuon-film":
+    "neatly stacked 35mm film rolls and canisters with a film strip fanned out on warm cream paper, soft natural window light, muted terracotta and brown palette, editorial analog photography",
   "phu-kien":
-    "camera accessories flat lay with leather strap, film rolls and filter on a cream textured background",
+    "camera accessories flat lay with leather strap, film rolls and a lens filter on warm cream textured paper, soft natural window light, muted terracotta and brown palette, editorial analog photography",
 };
 
 const trustItems = [
@@ -41,6 +50,39 @@ const trustItems = [
     icon: PackageCheck,
     title: "Bảo hành rõ ràng",
     description: "Bảo hành 3 tháng cho máy cũ, 12 tháng cho máy mới nguyên hộp.",
+  },
+];
+
+const testimonials = [
+  {
+    content:
+      "Máy ngoại hình rất đẹp, đúng như mô tả. Shop tư vấn nhiệt tình cho người mới chơi như mình.",
+    author: "Hoàng Nam",
+    role: "Khách hàng mua Olympus OM-1",
+    image: demoImage(
+      "candid portrait of a young man holding a vintage film camera, natural smile, soft sunlight, analog film look",
+      "square",
+    ),
+  },
+  {
+    content:
+      "Mình hay tìm máy film cũ cho các dự án cá nhân, máy ở Second Shot luôn đúng như mô tả và tư vấn rất kỹ. Sẽ ủng hộ dài lâu.",
+    author: "Minh Thư",
+    role: "Nhiếp ảnh gia tự do",
+    image: demoImage(
+      "young woman photographer checking film negatives under a light, authentic smile, warm cinematic lighting, analog mood",
+      "square",
+    ),
+  },
+  {
+    content:
+      "Tìm mãi mới được một chiếc máy compact ưng ý mà tình trạng còn tốt thế này. Cảm ơn Second Shot!",
+    author: "Anh Đức",
+    role: "Khách hàng mua Ricoh GR1",
+    image: demoImage(
+      "lifestyle shot of a person using a compact film camera on a city street, vintage cinematic style, authentic moment",
+      "square",
+    ),
   },
 ];
 
@@ -91,12 +133,13 @@ export default async function HomePage() {
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-surface-muted">
             <Image
               src={demoImage(
-                "editorial still life of a vintage film camera with printed photographs, film rolls and a notebook on a warm cream wooden desk, soft natural window light, analog photography aesthetic",
+                "young person shooting with a vintage film camera in a cinematic street setting, warm golden sunlight, analog film grain, chừa khoảng trống bên trái cho văn bản",
                 "landscape_4_3",
               )}
-              alt="Máy ảnh film và ảnh in trên bàn gỗ"
+              alt="Người trẻ đang chụp ảnh bằng máy ảnh film"
               fill
               priority
+              unoptimized
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
@@ -130,6 +173,7 @@ export default async function HomePage() {
                 )}
                 alt={category.name}
                 fill
+                unoptimized
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -191,6 +235,42 @@ export default async function HomePage() {
             dữ liệu demo.
           </p>
         )}
+      </section>
+
+      {/* Đánh giá khách hàng */}
+      <section className="ah-paper border-b border-border">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center">
+            <p className="ah-label">Cộng đồng Second Shot</p>
+            <h2 className="mt-2 font-serif text-3xl">Khách hàng nói gì?</h2>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t, i) => (
+              <div
+                key={i}
+                className="relative border border-border bg-surface p-6 pt-10 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <MessageSquareQuote className="absolute left-6 top-6 size-8 opacity-10" />
+                <p className="relative italic text-muted italic">&ldquo;{t.content}&rdquo;</p>
+                <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
+                  <div className="relative size-10 shrink-0 overflow-hidden rounded-full bg-accent-soft border border-border">
+                    <Image
+                      src={t.image}
+                      alt={t.author}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">{t.author}</p>
+                    <p className="text-[11px] uppercase tracking-wider text-muted">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Cam kết */}

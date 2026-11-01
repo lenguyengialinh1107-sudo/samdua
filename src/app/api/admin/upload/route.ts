@@ -7,6 +7,12 @@ export const runtime = "nodejs";
 
 const MAX_FILE_BYTES = 5 * 1024 * 1024;
 
+/** Chỉ cho phép các thư mục đã biết để tránh ghi lung tung lên Cloudinary. */
+const ALLOWED_FOLDERS: Record<string, string> = {
+  products: "second-shot/products",
+  blog: "second-shot/blog",
+};
+
 export async function POST(request: Request) {
   // Kiểm tra quyền ở server — ẩn nút trên UI không phải là bảo mật.
   const user = await getSessionUser();
@@ -31,8 +37,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "Thiếu tệp ảnh." }, { status: 400 });
   }
 
+  const folderKey = formData.get("folder");
+  const folder =
+    (typeof folderKey === "string" ? ALLOWED_FOLDERS[folderKey] : undefined) ??
+    ALLOWED_FOLDERS.products;
+
   try {
-    const result = await uploadProductImage(file);
+    const result = await uploadProductImage(file, folder);
     return NextResponse.json({ ok: true, url: result.url });
   } catch (error) {
     if (error instanceof UploadError) {

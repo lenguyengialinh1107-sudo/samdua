@@ -20,10 +20,13 @@ export function isUploadConfigured(): boolean {
 }
 
 /**
- * Upload ảnh sản phẩm lên Cloudinary từ server.
+ * Upload ảnh lên Cloudinary từ server.
  * API secret chỉ tồn tại ở server, không bao giờ gửi xuống client.
  */
-export async function uploadProductImage(file: File): Promise<{ url: string }> {
+export async function uploadProductImage(
+  file: File,
+  folder = "second-shot/products",
+): Promise<{ url: string }> {
   const config = getCloudinaryConfig();
   if (!config) {
     throw new UploadError(
@@ -52,7 +55,7 @@ export async function uploadProductImage(file: File): Promise<{ url: string }> {
 
   return new Promise<{ url: string }>((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
-      { folder: "second-shot/products", resource_type: "image" },
+      { folder, resource_type: "image" },
       (error, result) => {
         if (error || !result) {
           reject(new UploadError("Upload ảnh thất bại.", "FAILED"));

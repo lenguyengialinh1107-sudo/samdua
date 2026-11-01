@@ -53,6 +53,7 @@ export function CartView({ config }: { config: ShippingConfig }) {
                 src={productImageUrl(line.imageUrl)}
                 alt={line.name}
                 fill
+                unoptimized
                 sizes="96px"
                 className="object-contain"
               />
