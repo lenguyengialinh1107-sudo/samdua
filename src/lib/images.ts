@@ -23,7 +23,10 @@ function hashKey(input: string): string {
  * Trả về file local đã tải sẵn — không gọi dịch vụ ngoài nên không bị chặn khi deploy.
  */
 export function demoImage(prompt: string, size: string = "landscape_4_3"): string {
-  return `${DEMO_IMAGE_DIR}${hashKey(`${prompt}::${size}`)}.jpg`;
+  const remoteUrl = `https://${TRAE_IMAGE_HOST}/api/ide/v1/text_to_image?prompt=${encodeURIComponent(
+    prompt,
+  )}&image_size=${size}`;
+  return toLocalImage(remoteUrl);
 }
 
 /**
@@ -31,23 +34,21 @@ export function demoImage(prompt: string, size: string = "landscape_4_3"): strin
  * Các URL khác (Cloudinary, ảnh do admin tải lên...) được giữ nguyên.
  */
 export function toLocalImage(url: string): string {
-  const trimmed = url.trim();
-  if (trimmed === "") return trimmed;
+  if (url.includes(TRAE_IMAGE_HOST)) {
+    try {
+      const parsed = new URL(url);
+      const prompt = parsed.searchParams.get("prompt");
+      const size = parsed.searchParams.get("image_size") ?? "landscape_4_3";
 
-  let parsed: URL;
-  try {
-    parsed = new URL(trimmed);
-  } catch {
-    return trimmed;
+      if (prompt) {
+        const fileName = `${hashKey(`${prompt}::${size}`)}.jpg`;
+        return `${DEMO_IMAGE_DIR}${fileName}`;
+      }
+    } catch {
+      // Bỏ qua lỗi parse URL, trả về URL gốc
+    }
   }
-
-  if (parsed.hostname !== TRAE_IMAGE_HOST) return trimmed;
-
-  const prompt = parsed.searchParams.get("prompt");
-  if (!prompt) return trimmed;
-
-  const size = parsed.searchParams.get("image_size") ?? "landscape_4_3";
-  return `${DEMO_IMAGE_DIR}${hashKey(`${prompt}::${size}`)}.jpg`;
+  return url;
 }
 
 export function productImageUrl(url?: string | null): string {

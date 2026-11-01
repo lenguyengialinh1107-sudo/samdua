@@ -14,6 +14,16 @@ const globalForBlog = globalThis as unknown as {
 };
 
 function getStore(): Map<string, BlogPost> {
+  // Trong môi trường development, luôn tải lại dữ liệu từ mock-posts để phản ánh thay đổi file ngay lập tức.
+  if (process.env.NODE_ENV === "development") {
+    return new Map(
+      mockBlogPosts.map((post) => [
+        post.id,
+        { ...post, tags: [...post.tags], gallery: [...post.gallery] },
+      ]),
+    );
+  }
+
   if (!globalForBlog.__secondShotBlogPosts) {
     globalForBlog.__secondShotBlogPosts = new Map(
       mockBlogPosts.map((post) => [
