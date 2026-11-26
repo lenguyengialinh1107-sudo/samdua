@@ -4,7 +4,6 @@ export const PRODUCT_TYPES = [
   "FILM_CAMERA",
   "DIGITAL_CAMERA",
   "COMPACT_CAMERA",
-  "LENS",
   "ACCESSORY",
   "FILM_ROLL",
 ] as const;

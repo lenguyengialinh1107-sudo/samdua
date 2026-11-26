@@ -111,7 +111,7 @@ export function SiteHeaderNav({ user }: { user: HeaderUser | null }) {
             id="site-search"
             name="q"
             type="search"
-            placeholder="Tìm máy ảnh, lens…"
+            placeholder="Tìm máy ảnh, phụ kiện…"
             className="h-9 w-44 lg:w-56"
           />
           <Button

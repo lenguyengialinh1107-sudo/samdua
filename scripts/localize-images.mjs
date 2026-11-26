@@ -46,7 +46,102 @@ const EXTRA_PROMPTS = [
   [
     "subtle vintage film grain paper texture, warm cream and beige tones, minimal and elegant, professional analog background",
     "landscape_16_9",
-  ]
+  ],
+  // Blog: Hướng dẫn chọn máy ảnh film cho người mới
+  [
+    "young person holding a classic film camera, a variety of beginner-friendly film cameras arranged on a table, warm analog tones, soft natural lighting, professional photography",
+    "landscape_4_3",
+  ],
+  [
+    "hands loading a 35mm film roll into a vintage camera, close-up, warm cinematic lighting, editorial analog photography",
+    "landscape_4_3",
+  ],
+  [
+    "collection of popular beginner film cameras like Pentax K1000 and Canon AE-1 on a wooden shelf, warm vintage atmosphere",
+    "landscape_4_3",
+  ],
+  // Blog: Kodak Gold 200 hay Fujifilm 400?
+  [
+    "one Kodak Gold 200 film roll and one Fujifilm 400 film roll side by side, vintage analog mood, warm golden sunlight, cinematic film look",
+    "landscape_4_3",
+  ],
+  [
+    "photo comparison: warm golden street scene shot on Kodak Gold versus cooler green tones of Fujifilm 400, split screen, analog grain",
+    "landscape_4_3",
+  ],
+  [
+    "stack of Kodak and Fuji film boxes on a vintage wooden desk, warm cinematic lighting",
+    "landscape_4_3",
+  ],
+  // Blog: Review Olympus Superzoom 70
+  [
+    "authentic Olympus Superzoom 70 black compact film camera, realistic product photo on a vintage wooden surface, warm analog tones",
+    "landscape_4_3",
+  ],
+  [
+    "detailed shot of Olympus Superzoom 70 camera and buttons, black plastic body, vintage cinematic lighting",
+    "landscape_4_3",
+  ],
+  [
+    "interior view of an Olympus Superzoom 70 film chamber, clean rollers and pressure plate, soft warm lighting",
+    "landscape_4_3",
+  ],
+  [
+    "close up of a vintage camera viewfinder, clear optics, cinematic analog atmosphere",
+    "landscape_4_3",
+  ],
+  // Blog: 5 lỗi người mới chơi film thường mắc
+  [
+    "young person loading a 35mm film roll into a vintage SLR camera, concentrated expression, soft indoor lighting, analog film aesthetic",
+    "landscape_4_3",
+  ],
+  [
+    "hands holding a vintage camera, accidentally opening the back door with film inside, light leak effect, analog photography mistake",
+    "landscape_4_3",
+  ],
+  [
+    "blurry and underexposed analog photo, film grain, vintage mistake style",
+    "landscape_4_3",
+  ],
+  // Blog: Cách bảo quản máy ảnh film
+  [
+    "vintage film camera, a wooden dry box, and a cleaning kit with a soft brush and cloth on a cream table, warm cinematic lighting",
+    "landscape_4_3",
+  ],
+  [
+    "close-up of hands cleaning a camera with a microfiber cloth, dust-free glass, warm analog mood",
+    "landscape_4_3",
+  ],
+  [
+    "camera equipment stored neatly in a professional dry cabinet, hygrometer visible, warm vintage lighting",
+    "landscape_4_3",
+  ],
+  // Blog: Những địa điểm chụp ảnh film đẹp
+  [
+    "cinematic shot of a beautiful old street in Hanoi at sunset, warm golden light, vintage colonial buildings, analog film grain",
+    "landscape_4_3",
+  ],
+  [
+    "an old vintage cafe with wooden furniture and warm lighting, perfect for film photography, analog aesthetic",
+    "landscape_4_3",
+  ],
+  [
+    "sunlit riverside path with silhouettes of people at golden hour, warm cinematic film look",
+    "landscape_4_3",
+  ],
+  // Blog: Cách chọn cuộn film theo điều kiện ánh sáng
+  [
+    "different film rolls (ISO 100, 400, 800) placed in various lighting conditions from bright sun to deep shadow, warm analog cinematic lighting",
+    "landscape_4_3",
+  ],
+  [
+    "sunlight streaming through a window onto a variety of film canisters, warm golden tones, editorial analog photography",
+    "landscape_4_3",
+  ],
+  [
+    "shadowy indoor scene with a vintage camera, soft dim lighting, analog grain, cinematic mood",
+    "landscape_4_3",
+  ],
 ];
 
 async function fetchText(url) {
@@ -109,13 +204,13 @@ async function download(remoteUrl, file) {
 
   const fileName = path.basename(file);
   let attempts = 0;
-  const MAX_ATTEMPTS = 5;
+  const MAX_ATTEMPTS = 8; // Tăng số lần thử
 
   while (attempts < MAX_ATTEMPTS) {
     attempts += 1;
     try {
       if (attempts > 1) {
-        const waitTime = 5000 * attempts; // Đợi 10s, 15s, 20s...
+        const waitTime = 10000 * attempts; // Đợi lâu hơn (10s, 20s, 30s...)
         console.log(`\n  [${fileName}] Thử lại lần ${attempts}/${MAX_ATTEMPTS} sau ${waitTime/1000}s...`);
         await sleep(waitTime);
       }

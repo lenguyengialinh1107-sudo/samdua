@@ -25,7 +25,7 @@
 ### A.1. Website dùng để làm gì?
 
 **Analog House** là một website bán hàng (thương mại điện tử) chuyên về **máy ảnh film, máy ảnh
-digital, máy compact, ống kính (lens) và phụ kiện nhiếp ảnh**. Giao diện tiếng Việt, giá hiển thị
+digital, máy compact và phụ kiện nhiếp ảnh**. Giao diện tiếng Việt, giá hiển thị
 bằng đồng Việt Nam (VND).
 
 Khách truy cập có thể: xem danh sách sản phẩm, tìm kiếm và lọc, xem chi tiết từng máy, thêm vào
@@ -373,10 +373,10 @@ khoản tạo ra **luôn** là khách hàng — không thể tự nâng quyền 
 | SKU | Mã nội bộ của sản phẩm, bắt buộc, phải **không trùng** với sản phẩm khác. |
 | Giá bán / Giá so sánh | Nhập theo đồng VND. Giá so sánh (giá gạch) dùng để hiện phần trăm giảm giá. |
 | Danh mục / Thương hiệu | Chọn từ danh sách. Nếu chưa có danh mục nào, form sẽ cảnh báo và cần tạo danh mục trước. |
-| Loại sản phẩm / Tình trạng | Chọn trong danh sách (máy film, digital, compact, lens, phụ kiện, film...). |
+| Loại sản phẩm / Tình trạng | Chọn trong danh sách (máy film, digital, compact, phụ kiện, film...). |
 | Thông số máy ảnh | Nhập dạng "Tên thông số: giá trị", mỗi dòng một thông số. |
 | Tình trạng ngoại hình / hoạt động | Mô tả bằng chữ để khách đọc. |
-| Phụ kiện đi kèm | Ví dụ: thân máy, lens, nắp, dây đeo. |
+| Phụ kiện đi kèm | Ví dụ: thân máy, nắp, dây đeo. |
 | Số lượng tồn kho | Số nguyên, không âm. |
 | Hiển thị / Nổi bật | Bật để đăng bán công khai / để hiện ở mục nổi bật. |
 | URL ảnh | Mỗi dòng một đường dẫn ảnh, **tối đa 12 ảnh**. |

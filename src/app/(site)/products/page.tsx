@@ -12,7 +12,7 @@ import { getProductListPage } from "@/server/services/catalog.service";
 export const metadata: Metadata = {
   title: "Tất cả sản phẩm",
   description:
-    "Danh sách máy ảnh film, máy ảnh digital, compact, lens và phụ kiện nhiếp ảnh đang có tại Second Shot.",
+    "Danh sách máy ảnh film, máy ảnh digital, compact và phụ kiện nhiếp ảnh đang có tại Second Shot.",
   alternates: { canonical: "/products" },
 };
 

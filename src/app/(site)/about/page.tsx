@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Giới thiệu",
   description:
-    "Second Shot là cửa hàng mua bán máy ảnh film, digital, compact, lens và phụ kiện nhiếp ảnh tại Hà Nội. Máy đã kiểm tra, bảo hành rõ ràng, giá minh bạch.",
+    "Second Shot là cửa hàng mua bán máy ảnh film, digital, compact và phụ kiện nhiếp ảnh tại Hà Nội. Máy đã kiểm tra, bảo hành rõ ràng, giá minh bạch.",
   alternates: { canonical: "/about" },
 };
 
@@ -32,12 +32,8 @@ const inspectionSteps = [
     detail: "Đo sáng, tốc độ màn trập, lấy nét, đồng hồ đo sáng và các chế độ chụp.",
   },
   {
-    title: "Kiểm tra quang học",
-    detail: "Soi lens tìm mốc, rễ tre, xước và kiểm tra khả năng lấy nét ở mọi tiêu cự.",
-  },
-  {
     title: "Vệ sinh & hoàn thiện",
-    detail: "Vệ sinh thân máy, lens, buồng phim và thay gioăng sáng nếu cần.",
+    detail: "Vệ sinh thân máy, buồng phim và thay gioăng sáng nếu cần.",
   },
 ];
 
@@ -66,7 +62,7 @@ export default function AboutPage() {
       <StaticSection title="Chúng tôi làm gì">
         <p>
           Second Shot là cửa hàng nhỏ chuyên mua bán máy ảnh film, máy ảnh digital, máy compact,
-          lens và phụ kiện nhiếp ảnh. Mỗi chiếc máy đi qua cửa hàng đều được kiểm tra, vệ sinh và
+          và phụ kiện nhiếp ảnh. Mỗi chiếc máy đi qua cửa hàng đều được kiểm tra, vệ sinh và
           mô tả đúng tình trạng thực tế trước khi đến tay người dùng.
         </p>
         <p>

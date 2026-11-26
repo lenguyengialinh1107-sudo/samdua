@@ -8,7 +8,7 @@ export const site = {
   shortName: "SS",
   tagline: "Cửa hàng máy ảnh film & digital tuyển chọn",
   description:
-    "Second Shot mua bán máy ảnh film, máy ảnh digital, compact, lens và phụ kiện nhiếp ảnh. Máy đã kiểm tra, bảo hành rõ ràng, giá minh bạch.",
+    "Second Shot mua bán máy ảnh film, máy ảnh digital, compact và phụ kiện nhiếp ảnh. Máy đã kiểm tra, bảo hành rõ ràng, giá minh bạch.",
   locale: "vi_VN",
   currency: "VND",
   /** Dùng cho metadataBase, sitemap, canonical. Đổi khi deploy. */
@@ -33,7 +33,6 @@ export const site = {
 export const mainNav = [
   { label: "Máy film", href: "/products?category=may-film" },
   { label: "Digital & Compact", href: "/products?category=digital-compact" },
-  { label: "Lens", href: "/products?category=lens" },
   { label: "Phụ kiện", href: "/products?category=phu-kien" },
   { label: "Blog", href: "/blog" },
   { label: "Giới thiệu", href: "/about" },
@@ -82,7 +81,6 @@ export const productTypeLabels: Record<string, string> = {
   FILM_CAMERA: "Máy ảnh film",
   DIGITAL_CAMERA: "Máy ảnh digital",
   COMPACT_CAMERA: "Máy compact",
-  LENS: "Lens",
   ACCESSORY: "Phụ kiện",
   FILM_ROLL: "Film",
 };

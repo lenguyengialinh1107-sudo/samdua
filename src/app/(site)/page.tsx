@@ -23,11 +23,10 @@ const categoryArtwork: Record<string, string> = {
     "vintage 35mm film SLR camera collection arranged on a warm cream linen surface with scattered film rolls and printed photographs, soft natural window light, muted terracotta and brown palette, editorial analog photography",
   "digital-compact":
     "modern compact digital camera and mirrorless body on warm cream paper, minimal editorial product photography, soft diffused daylight, muted terracotta and brown palette",
-  lens: "several prime camera lenses standing on a warm cream studio surface, soft diffused daylight, muted terracotta and brown palette, editorial catalog style",
   "cuon-film":
     "neatly stacked 35mm film rolls and canisters with a film strip fanned out on warm cream paper, soft natural window light, muted terracotta and brown palette, editorial analog photography",
   "phu-kien":
-    "camera accessories flat lay with leather strap, film rolls and a lens filter on warm cream textured paper, soft natural window light, muted terracotta and brown palette, editorial analog photography",
+    "camera accessories flat lay with leather strap, film rolls and a filter on warm cream textured paper, soft natural window light, muted terracotta and brown palette, editorial analog photography",
 };
 
 const trustItems = [
@@ -251,7 +250,7 @@ export default async function HomePage() {
                 className="relative border border-border bg-surface p-6 pt-10 shadow-sm transition-shadow hover:shadow-md"
               >
                 <MessageSquareQuote className="absolute left-6 top-6 size-8 opacity-10" />
-                <p className="relative italic text-muted italic">&ldquo;{t.content}&rdquo;</p>
+                <p className="relative italic text-muted">&ldquo;{t.content}&rdquo;</p>
                 <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
                   <div className="relative size-10 shrink-0 overflow-hidden rounded-full bg-accent-soft border border-border">
                     <Image

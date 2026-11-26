@@ -67,7 +67,7 @@ export default function ContactPage() {
       <StaticSection title="Trước khi đến cửa hàng">
         <p>
           Bạn nên gọi trước để cửa hàng chuẩn bị máy bạn muốn xem, đặc biệt với các dòng máy film
-          hoặc lens ít có sẵn. Chúng tôi có thể giữ máy trong vòng 24 giờ theo yêu cầu.
+          hoặc ít có sẵn. Chúng tôi có thể giữ máy trong vòng 24 giờ theo yêu cầu.
         </p>
       </StaticSection>
 
@@ -83,7 +83,7 @@ export default function ContactPage() {
 
       <StaticSection title="Hợp tác & ký gửi">
         <p>
-          Second Shot nhận ký gửi và thu mua máy ảnh, lens cũ. Vui lòng gửi ảnh chụp sản phẩm kèm
+          Second Shot nhận ký gửi và thu mua máy ảnh cũ. Vui lòng gửi ảnh chụp sản phẩm kèm
           mô tả tình trạng qua email {site.email} để được báo giá sơ bộ.
         </p>
       </StaticSection>

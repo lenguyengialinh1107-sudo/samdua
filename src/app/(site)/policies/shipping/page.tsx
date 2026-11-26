@@ -51,8 +51,7 @@ export default async function ShippingPolicyPage() {
 
       <StaticSection title="Đóng gói & bảo đảm">
         <ul className="space-y-2">
-          <li>Máy ảnh được bọc chống sốc nhiều lớp, chèn kín hộp để tránh va đập.</li>
-          <li>Lens được cố định riêng và đậy cả hai nắp trước/sau.</li>
+          <li>Máy ảnh được bọc 3–4 lớp xốp khí (bubble wrap) trước khi đóng hộp.</li>
           <li>Đơn hàng được ghi nhận giá trị để hỗ trợ xử lý khi có sự cố phát sinh.</li>
         </ul>
       </StaticSection>

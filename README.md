@@ -1,6 +1,6 @@
 # Analog House
 
-Website thương mại điện tử mua bán máy ảnh film, máy ảnh digital, compact, lens và phụ kiện nhiếp ảnh.
+Website thương mại điện tử mua bán máy ảnh film, máy ảnh digital, compact và phụ kiện nhiếp ảnh.
 Giao diện tiếng Việt, tiền tệ VND, phong cách editorial/analog.
 
 ## Công nghệ

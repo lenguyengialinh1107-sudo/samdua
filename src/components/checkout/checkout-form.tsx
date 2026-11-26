@@ -180,7 +180,7 @@ export function CheckoutForm({
             <Textarea
               id="note"
               rows={2}
-              placeholder="Ví dụ: giao ngoài giờ hành chính, cần kiểm tra kỹ lens…"
+              placeholder="Ví dụ: giao ngoài giờ hành chính, cần kiểm tra kỹ máy…"
               aria-invalid={Boolean(form.formState.errors.note)}
               {...form.register("note")}
             />

@@ -28,7 +28,7 @@ export default function WarrantyPolicyPage() {
             Sản phẩm mới nguyên hộp: bảo hành theo tiêu chuẩn của nhà sản xuất hoặc{" "}
             <strong>12 tháng</strong>, tuỳ sản phẩm.
           </li>
-          <li>Lens và phụ kiện: <strong>30 ngày</strong> cho các lỗi kỹ thuật.</li>
+          <li>Phụ kiện: <strong>30 ngày</strong> cho các lỗi kỹ thuật.</li>
           <li>
             Thời hạn cụ thể của từng sản phẩm được ghi tại mục &ldquo;Bảo hành&rdquo; trên trang
             chi tiết sản phẩm.
@@ -38,8 +38,7 @@ export default function WarrantyPolicyPage() {
 
       <StaticSection title="Phạm vi bảo hành">
         <ul className="space-y-2">
-          <li>Lỗi phát sinh từ hoạt động của máy: màn trập, đo sáng, lấy nét, mạch điều khiển.</li>
-          <li>Lỗi quang học của lens: kẹt khẩu, kẹt lấy nét, hư motor lấy nét.</li>
+          <li>Lỗi đo sáng, lỗi cơ học, lỗi điện tử do nhà sản xuất hoặc hao mòn tự nhiên (với máy cũ).</li>
           <li>Các lỗi kỹ thuật không được nêu trong phần mô tả tình trạng khi bán.</li>
         </ul>
       </StaticSection>
@@ -49,7 +48,7 @@ export default function WarrantyPolicyPage() {
           <li>Hư hỏng do rơi vỡ, va đập, ngấm nước hoặc cháy nổ.</li>
           <li>Sản phẩm đã bị tháo mở hoặc sửa chữa bên ngoài cửa hàng.</li>
           <li>Hao mòn tự nhiên: vết xước thân máy, mờ cao su, hao mòn lớp da bọc.</li>
-          <li>Pin và các vật tư tiêu hao (gioăng sáng, nắp lens, film, hoá chất).</li>
+          <li>Pin và các vật tư tiêu hao (gioăng sáng, film, hoá chất).</li>
         </ul>
       </StaticSection>
 

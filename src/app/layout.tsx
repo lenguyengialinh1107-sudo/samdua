@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     "máy ảnh cũ",
     "máy ảnh digital",
     "compact",
-    "lens",
     "phụ kiện nhiếp ảnh",
     "mua bán máy ảnh",
   ],

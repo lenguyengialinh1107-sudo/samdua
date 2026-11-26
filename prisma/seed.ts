@@ -34,12 +34,6 @@ const categories = [
     sortOrder: 2,
   },
   {
-    slug: "lens",
-    name: "Lens",
-    description: "Ống kính rời cho các mount phổ biến, kèm filter khi có.",
-    sortOrder: 3,
-  },
-  {
     slug: "phu-kien",
     name: "Phụ kiện",
     description: "Túi, dây đeo, filter, pin, film và phụ kiện nhiếp ảnh.",
@@ -103,11 +97,11 @@ const products: DemoProduct[] = [
     },
     cosmeticCondition: "Thân máy đẹp, xước nhỏ ở đế máy, da dán còn tốt.",
     functionalCondition: "Màn trập, film advance và light meter đều chuẩn.",
-    includedAccessories: "Thân máy, lens 50mm f/1.8, nắp lens, dây đeo, pin LR44.",
+    includedAccessories: "Thân máy, ống kính 50mm f/1.8, nắp máy, dây đeo, pin LR44.",
     stockQuantity: 2,
     isFeatured: true,
     imagePrompt:
-      "product photo of a vintage Canon AE-1 Program 35mm film SLR camera with 50mm lens on a warm cream studio background, soft editorial lighting, high detail",
+      "product photo of a vintage Canon AE-1 Program 35mm film SLR camera on a warm cream studio background, soft editorial lighting, high detail",
   },
   {
     slug: "nikon-fm2-nikkor-50mm-f14-demo",
@@ -128,11 +122,11 @@ const products: DemoProduct[] = [
     },
     cosmeticCondition: "Vỏ máy còn sáng, vài vết xước nhỏ theo thời gian.",
     functionalCondition: "Hoạt động ổn định, không kẹt film, kính ngắm trong.",
-    includedAccessories: "Thân máy, lens 50mm f/1.4, nắp lens, dây đeo.",
+    includedAccessories: "Thân máy, ống kính 50mm f/1.4, nắp máy, dây đeo.",
     stockQuantity: 1,
     isFeatured: true,
     imagePrompt:
-      "product photo of a black Nikon FM2 film SLR camera with a 50mm f1.4 lens, cream paper background, editorial product photography, soft shadow",
+      "product photo of a black Nikon FM2 film SLR camera, cream paper background, editorial product photography, soft shadow",
   },
   {
     slug: "olympus-om-1-zuiko-50mm-f18-demo",
@@ -153,10 +147,10 @@ const products: DemoProduct[] = [
     },
     cosmeticCondition: "Bong tróc sơn nhẹ ở góc máy, không ảnh hưởng sử dụng.",
     functionalCondition: "Máy chụp tốt, film counter chuẩn.",
-    includedAccessories: "Thân máy, lens 50mm f/1.8, nắp lens, dây đeo.",
+    includedAccessories: "Thân máy, ống kính 50mm f/1.8, nắp máy, dây đeo.",
     stockQuantity: 3,
     imagePrompt:
-      "product photo of a silver and black Olympus OM-1 35mm film camera with 50mm lens, cream linen background, minimal editorial styling",
+      "product photo of a silver and black Olympus OM-1 35mm film camera, cream linen background, minimal editorial styling",
   },
   {
     slug: "pentax-k1000-smc-50mm-f2-demo",
@@ -178,17 +172,17 @@ const products: DemoProduct[] = [
     },
     cosmeticCondition: "Dấu hiệu sử dụng rõ, vỏ kim loại còn chắc.",
     functionalCondition: "Chụp thử tốt, không rò sáng.",
-    includedAccessories: "Thân máy, lens 50mm f/2, nắp lens, dây đeo.",
+    includedAccessories: "Thân máy, ống kính 50mm f/2, nắp máy, dây đeo.",
     stockQuantity: 2,
     imagePrompt:
-      "product photo of a classic Pentax K1000 film camera with 50mm lens, warm neutral background, soft daylight, editorial catalog style",
+      "product photo of a classic Pentax K1000 film camera, warm neutral background, soft daylight, editorial catalog style",
   },
   {
     slug: "yashica-mat-124g-tlr-demo",
     name: "Yashica Mat-124G (TLR medium format)",
     sku: "AH-FILM-MAT124G-005",
     description:
-      "Máy TLR medium format 6x6 với lens Yashinon 80mm f/3.5. Kính ngắm sáng, lấy nét mượt, phù hợp chụp chân dung và phong cảnh khổ vuông.",
+      "Máy TLR medium format 6x6 với ống kính Yashinon 80mm f/3.5. Kính ngắm sáng, lấy nét mượt, phù hợp chụp chân dung và phong cảnh khổ vuông.",
     price: 7_900_000,
     categorySlug: "may-film",
     brandName: "Yashica",
@@ -196,13 +190,13 @@ const products: DemoProduct[] = [
     condition: ProductCondition.EXCELLENT,
     cameraSpecs: {
       "Định dạng film": "120 medium format (6x6)",
-      Lens: "Yashinon 80mm f/3.5",
+      "Ống kính": "Yashinon 80mm f/3.5",
       "Tốc độ màn trập": "1 – 1/500s",
       "Đo sáng": "Có, hoạt động",
     },
     cosmeticCondition: "Ngoại hình đẹp, chữ và logo còn rõ.",
     functionalCondition: "Lấy nét chính xác, đếm film hoạt động tốt.",
-    includedAccessories: "Thân máy, nắp lens, dây đeo, hood.",
+    includedAccessories: "Thân máy, nắp máy, dây đeo, hood.",
     stockQuantity: 1,
     isFeatured: true,
     imagePrompt:
@@ -213,7 +207,7 @@ const products: DemoProduct[] = [
     name: "Contax T2 (compact film cao cấp)",
     sku: "AH-CMP-T2-006",
     description:
-      "Compact film cao cấp với lens Sonnar 38mm f/2.8, chế độ lấy nét tự động và đo sáng chuẩn. Máy đã được kiểm tra toàn bộ và chụp test.",
+      "Compact film cao cấp với ống kính Sonnar 38mm f/2.8, chế độ lấy nét tự động và đo sáng chuẩn. Máy đã được kiểm tra toàn bộ và chụp test.",
     price: 18_500_000,
     compareAtPrice: 19_900_000,
     categorySlug: "digital-compact",
@@ -222,7 +216,7 @@ const products: DemoProduct[] = [
     condition: ProductCondition.LIKE_NEW,
     cameraSpecs: {
       "Định dạng film": "35mm (135)",
-      Lens: "Carl Zeiss Sonnar 38mm f/2.8",
+      "Ống kính": "Carl Zeiss Sonnar 38mm f/2.8",
       "Lấy nét": "Tự động / thủ công",
       "Đo sáng": "Tự động",
     },
@@ -239,7 +233,7 @@ const products: DemoProduct[] = [
     name: "Fujifilm X100V (silver)",
     sku: "AH-DIG-X100V-007",
     description:
-      "Máy compact cao cấp cảm biến APS-C 26MP, lens cố định 23mm f/2, có màn hình lật và film simulation đặc trưng Fujifilm.",
+      "Máy compact cao cấp cảm biến APS-C 26MP, ống kính cố định 23mm f/2, có màn hình lật và film simulation đặc trưng Fujifilm.",
     price: 26_900_000,
     categorySlug: "digital-compact",
     brandName: "Fujifilm",
@@ -247,7 +241,7 @@ const products: DemoProduct[] = [
     condition: ProductCondition.LIKE_NEW,
     cameraSpecs: {
       "Cảm biến": "APS-C X-Trans CMOS 4, 26.1MP",
-      Lens: "Fujinon 23mm f/2 (tương đương 35mm)",
+      "Ống kính": "Fujinon 23mm f/2 (tương đương 35mm)",
       "Video": "4K 30fps",
       "Số lần bấm máy": "~4.200",
     },
@@ -303,59 +297,11 @@ const products: DemoProduct[] = [
     },
     cosmeticCondition: "Mới 100%, nguyên seal.",
     functionalCondition: "Mới, chưa qua sử dụng.",
-    includedAccessories: "Body, lens RF-S 18-45mm, pin, sạc, dây đeo, hộp.",
+    includedAccessories: "Body, ống kính RF-S 18-45mm, pin, sạc, dây đeo, hộp.",
     stockQuantity: 4,
     isFeatured: true,
     imagePrompt:
-      "product photo of a new Canon EOS R50 white mirrorless camera with kit zoom lens, clean cream background, bright editorial catalog lighting",
-  },
-  {
-    slug: "nikkor-50mm-f18g-demo",
-    name: "Nikon AF-S Nikkor 50mm f/1.8G",
-    sku: "AH-LENS-50G-010",
-    description:
-      "Ống kính fix 50mm f/1.8 cho mount Nikon F, kính trong, lấy nét tự động nhanh và chính xác.",
-    price: 2_300_000,
-    categorySlug: "lens",
-    brandName: "Nikon",
-    productType: ProductType.LENS,
-    condition: ProductCondition.EXCELLENT,
-    cameraSpecs: {
-      Mount: "Nikon F (AF-S)",
-      "Tiêu cự": "50mm",
-      "Khẩu độ": "f/1.8 – f/16",
-      "Lấy nét": "Tự động / thủ công",
-    },
-    cosmeticCondition: "Vỏ lens đẹp, không mốc.",
-    functionalCondition: "Kính trong, AF nhanh, không kẹt.",
-    includedAccessories: "Lens, nắp trước, nắp sau, hood.",
-    stockQuantity: 3,
-    imagePrompt:
-      "product photo of a Nikon 50mm f1.8 prime camera lens on cream background, editorial product photography, soft light",
-  },
-  {
-    slug: "canon-fd-28mm-f28-demo",
-    name: "Canon FD 28mm f/2.8",
-    sku: "AH-LENS-FD28-011",
-    description:
-      "Lens góc rộng cho máy film Canon FD, phù hợp chụp phong cảnh và street photography.",
-    price: 1_750_000,
-    categorySlug: "lens",
-    brandName: "Canon",
-    productType: ProductType.LENS,
-    condition: ProductCondition.GOOD,
-    cameraSpecs: {
-      Mount: "Canon FD",
-      "Tiêu cự": "28mm",
-      "Khẩu độ": "f/2.8 – f/22",
-      "Lấy nét": "Thủ công",
-    },
-    cosmeticCondition: "Có vết sử dụng trên vỏ, vòng khẩu độ mượt.",
-    functionalCondition: "Kính trong, không mốc, khẩu độ đóng mở đều.",
-    includedAccessories: "Lens, nắp trước, nắp sau.",
-    stockQuantity: 2,
-    imagePrompt:
-      "product photo of a vintage Canon FD 28mm f2.8 wide angle lens, cream linen background, minimal editorial styling",
+      "product photo of a new Canon EOS R50 white mirrorless camera, clean cream background, bright editorial catalog lighting",
   },
   {
     slug: "peak-design-cuff-strap-demo",
@@ -409,7 +355,7 @@ const products: DemoProduct[] = [
     name: "Leica M6 Classic + Summicron 35mm",
     sku: "AH-FILM-M6-014",
     description:
-      "Rangefinder Leica M6 huyền thoại, kèm lens Summicron 35mm f/2. Máy đo sáng hoạt động chính xác, đã được kiểm tra kỹ bởi kỹ thuật viên.",
+      "Rangefinder Leica M6 huyền thoại, kèm ống kính Summicron 35mm f/2. Máy đo sáng hoạt động chính xác, đã được kiểm tra kỹ bởi kỹ thuật viên.",
     price: 89_000_000,
     compareAtPrice: 95_000_000,
     categorySlug: "may-film",
@@ -424,10 +370,10 @@ const products: DemoProduct[] = [
     },
     cosmeticCondition: "Đẹp, vài dấu sử dụng nhỏ ở đáy máy.",
     functionalCondition: "Rangefinder chỉnh chuẩn, màn trập chính xác.",
-    includedAccessories: "Thân máy, lens Summicron 35mm f/2, nắp, dây đeo.",
+    includedAccessories: "Thân máy, ống kính Summicron 35mm f/2, nắp, dây đeo.",
     stockQuantity: 1,
     imagePrompt:
-      "product photo of a black Leica M6 classic rangefinder film camera with 35mm summicron lens, cream background, luxury editorial product shot",
+      "product photo of a black Leica M6 classic rangefinder film camera, cream background, luxury editorial product shot",
   },
 ];
 

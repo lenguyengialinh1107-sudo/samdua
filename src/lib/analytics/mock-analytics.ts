@@ -35,7 +35,7 @@ const LOW_STOCK_THRESHOLD = 2;
 const CATEGORY = {
   film: "Máy film",
   digital: "Digital & Compact",
-  lens: "Lens",
+  roll: "Cuộn film",
   accessory: "Phụ kiện",
 } as const;
 
@@ -92,13 +92,6 @@ const CATALOG: CatalogEntry[] = [
     stock: 1,
   },
   {
-    slug: "contax-t2-compact-demo",
-    name: "Contax T2 (compact film cao cấp)",
-    category: CATEGORY.digital,
-    price: 18_500_000,
-    stock: 1,
-  },
-  {
     slug: "fujifilm-x100v-demo",
     name: "Fujifilm X100V (silver)",
     category: CATEGORY.digital,
@@ -120,39 +113,18 @@ const CATALOG: CatalogEntry[] = [
     stock: 4,
   },
   {
-    slug: "nikkor-50mm-f18g-demo",
-    name: "Nikon AF-S Nikkor 50mm f/1.8G",
-    category: CATEGORY.lens,
-    price: 2_300_000,
-    stock: 3,
-  },
-  {
-    slug: "canon-fd-28mm-f28-demo",
-    name: "Canon FD 28mm f/2.8",
-    category: CATEGORY.lens,
-    price: 1_750_000,
-    stock: 2,
-  },
-  {
-    slug: "peak-design-cuff-strap-demo",
-    name: "Dây đeo tay Peak Design Cuff",
-    category: CATEGORY.accessory,
-    price: 950_000,
-    stock: 8,
-  },
-  {
     slug: "kodak-portra-400-box-5-demo",
     name: "Film Kodak Portra 400 (hộp 5 cuộn)",
-    category: CATEGORY.accessory,
+    category: CATEGORY.roll,
     price: 1_250_000,
     stock: 10,
   },
   {
-    slug: "leica-m6-classic-demo",
-    name: "Leica M6 Classic + Summicron 35mm",
-    category: CATEGORY.film,
-    price: 89_000_000,
-    stock: 1,
+    slug: "kodak-gold-200-demo",
+    name: "Film Kodak Gold 200",
+    category: CATEGORY.roll,
+    price: 200_000,
+    stock: 15,
   },
 ];
 
@@ -162,15 +134,11 @@ const PRODUCT_METRICS: Record<string, ProductMetric> = {
   "olympus-om-1-zuiko-50mm-f18-demo": { views: 18_920, addedToCart: 366, orders: 88 },
   "pentax-k1000-smc-50mm-f2-demo": { views: 26_140, addedToCart: 502, orders: 132 },
   "yashica-mat-124g-tlr-demo": { views: 12_480, addedToCart: 178, orders: 41 },
-  "contax-t2-compact-demo": { views: 19_760, addedToCart: 241, orders: 58 },
   "fujifilm-x100v-demo": { views: 32_510, addedToCart: 588, orders: 143 },
   "sony-a7-iii-body-demo": { views: 28_270, addedToCart: 421, orders: 102 },
   "canon-eos-r50-kit-demo": { views: 22_930, addedToCart: 690, orders: 176 },
-  "nikkor-50mm-f18g-demo": { views: 14_360, addedToCart: 505, orders: 121 },
-  "canon-fd-28mm-f28-demo": { views: 9_845, addedToCart: 349, orders: 87 },
-  "peak-design-cuff-strap-demo": { views: 8_120, addedToCart: 812, orders: 214 },
   "kodak-portra-400-box-5-demo": { views: 17_540, addedToCart: 1_264, orders: 386 },
-  "leica-m6-classic-demo": { views: 30_180, addedToCart: 62, orders: 12 },
+  "kodak-gold-200-demo": { views: 12_450, addedToCart: 850, orders: 240 },
 };
 
 /** Lượt xem mẫu cho từng bài viết, key theo slug thật. */
@@ -305,7 +273,7 @@ function buildProductRows(): ProductPerformanceRow[] {
 
 /** Lượt xem sản phẩm theo danh mục — tính từ dữ liệu sản phẩm ở trên. */
 function buildCategoryViews(rows: ProductPerformanceRow[]): CategoryViewsPoint[] {
-  const order = [CATEGORY.film, CATEGORY.digital, CATEGORY.lens, CATEGORY.accessory];
+  const order = [CATEGORY.film, CATEGORY.digital, CATEGORY.roll, CATEGORY.accessory];
   const totals = new Map<string, number>();
   for (const row of rows) {
     totals.set(row.category, (totals.get(row.category) ?? 0) + row.views);

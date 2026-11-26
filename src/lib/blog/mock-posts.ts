@@ -16,57 +16,45 @@ const seeds: Omit<BlogPost, "readingMinutes">[] = [
     slug: "huong-dan-chon-may-anh-film-cho-nguoi-moi",
     title: "Hướng dẫn chọn máy ảnh film cho người mới",
     excerpt:
-      "Bắt đầu từ đâu, chọn máy nào và cần tránh những gì? Bài viết tổng hợp kinh nghiệm chọn máy film đầu tiên cho người mới.",
+      "Bạn mới tập chơi film và đang lạc giữa rừng máy ảnh? Bài viết này sẽ giúp bạn chọn được chiếc máy đầu tiên ưng ý.",
     categorySlug: "huong-dan-cho-nguoi-moi",
     tags: ["người mới", "chọn máy", "máy film"],
     coverImage: demoImage(
-      "young person holding a classic film camera, a variety of beginner-friendly film cameras arranged on a table, warm analog tones, soft natural lighting, professional photography",
+      "collection of vintage film cameras on a warm cream wooden table, soft natural light, analog photography vibe",
       "landscape_4_3",
     ),
-    coverAlt: "Người đang cầm máy ảnh film và các dòng máy cho người mới",
+    coverAlt: "Bộ sưu tập máy ảnh film cho người mới",
     gallery: [
       demoImage(
-        "hands loading a 35mm film roll into a vintage camera, close-up, warm cinematic lighting, editorial analog photography",
-        "landscape_4_3",
-      ),
-      demoImage(
-        "collection of popular beginner film cameras like Pentax K1000 and Canon AE-1 on a wooden shelf, warm vintage atmosphere",
+        "close up of a vintage camera viewfinder, clear optics, cinematic analog atmosphere",
         "landscape_4_3",
       ),
     ],
-    author: "Second Shot",
-    publishedAt: "2026-09-12T09:00:00.000Z",
+    author: "Second Shot Team",
+    publishedAt: "2026-10-25T09:00:00.000Z",
     isFeatured: true,
     status: "PUBLISHED",
-    updatedAt: "2026-09-12T09:00:00.000Z",
-    content: `Chọn chiếc máy film đầu tiên giống như chọn một người bạn đồng hành: không cần đắt tiền, chỉ cần hợp với cách bạn chụp.
+    updatedAt: "2026-10-25T09:00:00.000Z",
+    content: `Việc bắt đầu với nhiếp ảnh film có thể gây choáng ngợp vì có quá nhiều lựa chọn. Từ các dòng máy SLR chuyên nghiệp đến các dòng Compact tiện lợi, đâu là lựa chọn đúng?
 
-## Xác định nhu cầu trước khi chọn máy
-Đa số người mới mua máy theo cảm hứng rồi mới nhận ra mình cần một chiếc máy khác. Hãy trả lời ba câu hỏi: bạn chụp gì, chụp bao nhiêu cuộn mỗi tháng và bạn thích mang máy theo người hay để ở nhà?
-
-- Chụp hằng ngày, mang theo người: máy compact là lựa chọn gọn nhẹ.
-- Muốn học bố cục, khẩu độ, tốc độ: máy SLR cơ sẽ dạy bạn nhiều hơn.
-- Chụp chân dung, sự kiện trong nhà: ưu tiên máy có đèn flash hoặc hot shoe.
+## Xác định nhu cầu của bạn
+Nếu bạn muốn học cách kiểm soát hoàn toàn thông số (khẩu độ, tốc độ), máy SLR là lựa chọn tốt nhất. Còn nếu bạn chỉ muốn chụp nhanh, bắt trọn khoảnh khắc mà không cần suy nghĩ nhiều, hãy chọn máy Point & Shoot (Compact).
 
 ## Các dòng máy phù hợp với người mới
-Máy SLR cơ như Pentax K1000, Canon AE-1 hay Nikon FM10 có ưu điểm là bền, dễ sửa và giá lens rẻ. Máy compact như Olympus Mju, Yashica T4 lại tiện mang theo và chụp nhanh.
+Máy SLR cơ như Pentax K1000, Canon AE-1 hay Nikon FM10 có ưu điểm là bền và dễ sửa. Máy compact như Olympus Mju, Yashica T4 lại tiện mang theo.
 
 > Lời khuyên: chiếc máy tốt nhất là chiếc máy bạn thực sự mang ra khỏi nhà.
 
-Nếu ngân sách hạn chế, hãy dành nhiều tiền cho lens và film hơn là cho thân máy. Một thân máy tầm trung đi kèm lens tốt sẽ cho ảnh đẹp hơn một thân máy cao cấp với lens kém.
+Nếu ngân sách hạn chế, hãy dành nhiều tiền cho film hơn là cho thân máy. Một chiếc máy tốt sẽ cho ảnh đẹp hơn.
 
 ## Những thứ cần kiểm tra khi mua máy cũ
-Máy film mua cũ luôn cần kiểm tra kỹ trước khi xuống tiền, đặc biệt là các bộ phận dễ hỏng theo thời gian.
+Máy film mua cũ luôn cần kiểm tra kỹ trước khi xuống tiền.
 
-- Gioăng sáng (light seal) có bị mủn hay không.
-- Cửa màn trập mở đúng tốc độ, tiếng máy đều.
-- Ống kính không mốc, không rễ tre, không xước thấu kính.
-- Đồng hồ đo sáng hoạt động và khớp với máy đo ngoài.
-
-## Ngân sách và phụ kiện đi kèm
-Ngoài tiền máy, bạn nên tính thêm chi phí film và các khoản phát sinh khi chụp — đây mới là khoản chi kéo dài. Một cuộn film 36 kiểu thường tốn tương đương vài trăm nghìn đồng, nên hãy chọn máy theo khả năng duy trì đều đặn việc chụp.
-
-Đừng quên pin, túi đựng máy và một ít hạt hút ẩm. Ba thứ nhỏ này giúp máy của bạn sống lâu hơn rất nhiều.`,
+- Thân máy không nứt vỡ, da dán còn tốt.
+- Tốc độ màn trập chính xác ở mọi nấc.
+- Hệ thống đo sáng hoạt động ổn định.
+- Kính ngắm trong, không bụi mốc.
+- Buồng phim sạch, gioăng sáng kín.`,
   },
   {
     id: "post-02",
@@ -136,11 +124,11 @@ Không có cuộn film nào "tốt nhất", chỉ có cuộn phù hợp nhất v
     coverAlt: "Máy ảnh Olympus Superzoom 70",
     gallery: [
       demoImage(
-        "detailed shot of Olympus Superzoom 70 camera lens and buttons, black plastic body, vintage cinematic lighting",
+        "detailed shot of Olympus Superzoom 70 camera and buttons, black plastic body, vintage cinematic lighting",
         "landscape_4_3",
       ),
       demoImage(
-        "person holding an Olympus Superzoom 70 camera, candid street photography style, warm analog mood",
+        "interior view of an Olympus Superzoom 70 film chamber, clean rollers and pressure plate, soft warm lighting",
         "landscape_4_3",
       ),
     ],
@@ -161,7 +149,7 @@ Máy có thân nhựa gọn, trọng lượng nhẹ, dễ bỏ túi áo khoác. 
 - Điểm trừ: thân nhựa, tốc độ lấy nét chậm, hạn chế khi thiếu sáng.
 
 ## Ai nên mua máy này?
-Máy phù hợp với người mới muốn một chiếc compact mang theo hằng ngày, chụp du lịch hoặc ảnh gia đình. Nếu bạn cần chất ảnh đỉnh cao để in lớn, hãy cân nhắc máy SLR với lens cố định.
+Máy phù hợp với người mới muốn một chiếc compact mang theo hằng ngày, chụp du lịch hoặc ảnh gia đình. Nếu bạn cần chất ảnh đỉnh cao để in lớn, hãy cân nhắc các dòng máy SLR.
 
 > Đây là chiếc máy "đủ tốt để bắt đầu", không phải để theo đuổi chất lượng tối đa.
 
@@ -231,13 +219,13 @@ Hãy chụp chậm lại, kiểm tra máy trước và sau mỗi cuộn, và ch�
     categorySlug: "huong-dan-cho-nguoi-moi",
     tags: ["bảo quản", "chăm sóc máy", "nấm mốc"],
     coverImage: demoImage(
-      "vintage film camera, a wooden dry box, and a lens cleaning kit with a soft brush and cloth on a cream table, warm cinematic lighting",
+      "vintage film camera, a wooden dry box, and a cleaning kit with a soft brush and cloth on a cream table, warm cinematic lighting",
       "landscape_4_3",
     ),
-    coverAlt: "Máy ảnh, hộp chống ẩm và bộ vệ sinh lens",
+    coverAlt: "Máy ảnh, hộp chống ẩm và bộ vệ sinh máy",
     gallery: [
       demoImage(
-        "close-up of hands cleaning a camera lens with a microfiber cloth, dust-free glass, warm analog mood",
+        "close-up of hands cleaning a camera with a microfiber cloth, dust-free glass, warm analog mood",
         "landscape_4_3",
       ),
       demoImage(
@@ -253,16 +241,16 @@ Hãy chụp chậm lại, kiểm tra máy trước và sau mỗi cuộn, và ch�
     content: `Máy film là thiết bị cơ khí có nhiều bộ phận nhạy cảm với độ ẩm và bụi. Bảo quản đúng cách sẽ giữ máy hoạt động ổn định trong nhiều năm.
 
 ## Hiểm hoạ từ độ ẩm và nấm mốc
-Khí hậu nóng ẩm tạo điều kiện cho nấm mốc phát triển trên thấu kính. Nấm mốc ăn mòn lớp coating, để lại vết mờ không thể phục hồi hoàn toàn.
+Khí hậu nóng ẩm tạo điều kiện cho nấm mốc phát triển. Nấm mốc có thể làm hỏng kính ngắm và các bộ phận cơ khí.
 
 - Giữ độ ẩm trong khoảng 40 đến 50 phần trăm.
 - Dùng tủ chống ẩm hoặc hộp kín kèm hạt hút ẩm.
 - Thay hạt hút ẩm định kỳ, thường 1 đến 2 tháng một lần.
 
 ## Vệ sinh định kỳ
-Bụi trên thấu kính làm giảm độ tương phản và dễ gây xước khi lau. Chỉ dùng bút thổi bụi và khăn microfibre dành riêng cho quang học, không dùng vạt áo.
+Bụi bẩn bám lâu ngày dễ gây xước xát và kẹt các bộ phận cơ khí. Chỉ dùng bóng thổi bụi và khăn mềm sạch để vệ sinh máy.
 
-> Không bao giờ dùng cồn nồng độ cao để lau thấu kính có coating.
+> Không bao giờ dùng cồn nồng độ cao để lau các bộ phận nhạy cảm.
 
 ## Cất máy đúng cách
 Máy nên được cất ở nơi khô, thoáng, tránh ánh nắng trực tiếp. Với máy SLR, hãy trả cần lên film về vị trí nghỉ và đặt tốc độ màn trập ở vị trí trung tính để lò xo không bị mỏi.
@@ -323,7 +311,7 @@ Không gian xanh giúp ảnh có nhiều lớp tiền cảnh và hậu cảnh. V
 Ánh sáng cửa sổ là nguồn sáng mềm lý tưởng, phù hợp cho chân dung với film ISO 400. Hãy chọn chỗ ngồi cạnh cửa sổ và tránh để hậu cảnh có nhiều chi tiết nhiễu.
 
 ## Chuẩn bị cho một buổi chụp
-Mang theo 2 cuộn film với ISO khác nhau, một lens góc rộng và một lens chân dung là đủ. Đừng quên pin dự phòng, khăn lau lens và một chút kiên nhẫn để chờ đúng khoảnh khắc.`,
+Mang theo 2 cuộn film với ISO khác nhau là đủ. Đừng quên pin dự phòng, khăn lau máy và một chút kiên nhẫn để chờ đúng khoảnh khắc.`,
   },
   {
     id: "post-08",
@@ -367,7 +355,7 @@ Mỗi bối cảnh có một dải ISO phù hợp. Hãy chọn theo ánh sáng b
 
 - Nắng gắt giữa trưa: ISO 100, chú ý vùng cháy sáng.
 - Trời âm u hoặc mưa: ISO 400 để giữ tốc độ an toàn.
-- Trong nhà thiếu sáng: ISO 800 kèm lens khẩu lớn.
+- Trong nhà thiếu sáng: ISO 800.
 - Chụp đêm có flash: ISO 400 giúp nền sáng tự nhiên hơn.
 
 > Khi không chắc về ánh sáng, ISO 400 thường là lựa chọn ít hậu quả nhất.

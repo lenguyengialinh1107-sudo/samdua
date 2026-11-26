@@ -2,7 +2,7 @@ Prompt Vibe Coding — Website mua bán máy film & máy ảnh digital
 Cách dùng: Mở công cụ vibe coding (ví dụ Cursor, Windsurf, Claude Code hoặc công cụ tương tự), mở một thư mục dự án mới rồi dán toàn bộ prompt bên dưới. Nếu công cụ làm theo từng bước, yêu cầu nó hoàn thành từng phase và chạy kiểm tra trước khi chuyển phase tiếp theo.
 
 PROMPT CHÍNH
-Bạn là Senior Full-Stack Engineer kiêm UI/UX Designer. Hãy xây dựng một website thương mại điện tử hoàn chỉnh để mua bán máy ảnh film, máy ảnh digital, máy ảnh compact, lens và phụ kiện nhiếp ảnh. Tên thương hiệu tạm thời: Analog House (đặt tên và nội dung ở một nơi dễ đổi). Thị trường: Việt Nam; ngôn ngữ giao diện mặc định là tiếng Việt; tiền tệ VND.
+Bạn là Senior Full-Stack Engineer kiêm UI/UX Designer. Hãy xây dựng một website thương mại điện tử hoàn chỉnh để mua bán máy ảnh film, máy ảnh digital, máy ảnh compact và phụ kiện nhiếp ảnh. Tên thương hiệu tạm thời: Analog House (đặt tên và nội dung ở một nơi dễ đổi). Thị trường: Việt Nam; ngôn ngữ giao diện mặc định là tiếng Việt; tiền tệ VND.
 1. Mục tiêu và nguyên tắc làm việc
 - Tạo sản phẩm chạy được thực tế, không chỉ là landing page hoặc mockup.
 - Có frontend, backend/API, database, xác thực, quản trị sản phẩm và quy trình đặt hàng.
@@ -55,7 +55,7 @@ Tạo tối thiểu các trang sau:
 1. / — Trang chủ:
    - Header, logo chữ, menu, tìm kiếm, tài khoản, giỏ hàng.
    - Hero giới thiệu thương hiệu và CTA.
-   - Danh mục: Máy film, Digital/Compact, Lens, Phụ kiện.
+   - Danh mục: Máy film, Digital/Compact, Phụ kiện.
    - Sản phẩm nổi bật, hàng mới về, sản phẩm tuyển chọn.
    - Khối giới thiệu kiểm tra máy, tình trạng sản phẩm, chính sách bảo hành/đổi trả.
    - Newsletter chỉ làm khi có backend/consent phù hợp; nếu chưa tích hợp, không giả vờ gửi email.
