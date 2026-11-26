@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { AddToCart } from "@/components/product/add-to-cart";
+import { ARViewer } from "@/components/product/ar-viewer";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductGallery } from "@/components/product/product-gallery";
 import { Badge } from "@/components/ui/badge";
@@ -176,6 +177,23 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* Trải nghiệm 3D / AR */}
+      <section className="mt-16">
+        <h2 className="font-serif text-2xl">Trải nghiệm 3D / AR</h2>
+        <p className="mt-2 text-sm text-muted">
+          Xoay, phóng to hoặc xem sản phẩm trong không gian thực bằng thực tế ảo tăng cường (AR).
+        </p>
+        <div className="mt-6">
+          <ARViewer
+            title="Canon PowerShot G9 X Mark II Digital Camera"
+            src="https://sketchfab.com/models/c91d721ba8c6499381005d9fa608927d/embed?autostart=1"
+            href="https://sketchfab.com/3d-models/canon-powershot-g9-x-mark-ii-digital-camera-c91d721ba8c6499381005d9fa608927d"
+            authorName="lion.gelders"
+            authorUrl="https://sketchfab.com/lion.gelders"
+          />
+        </div>
+      </section>
 
       {/* Chi tiết */}
       <div className="mt-16 grid gap-10 lg:grid-cols-3">
