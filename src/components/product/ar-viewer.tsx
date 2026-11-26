@@ -1,53 +1,53 @@
+"use client";
+
+import { Camera } from "lucide-react";
+import * as React from "react";
+
 interface ARViewerProps {
-  /** Tiêu đề mô hình 3D (dùng cho thuộc tính title và nội dung ghi nguồn). */
-  title: string;
-  /** Đường dẫn nhúng iframe (Sketchfab). */
+  /** Đường dẫn tới mô hình 3D (.glb). */
   src: string;
-  /** Link tới trang mô hình gốc. */
-  href: string;
-  /** Tên tác giả mô hình. */
-  authorName: string;
-  /** Link tới trang tác giả. */
-  authorUrl: string;
+  /** Mô tả mô hình cho trình đọc màn hình. */
+  alt?: string;
+  /** Ảnh poster hiển thị trong lúc mô hình đang tải. */
+  poster?: string;
 }
 
 /**
- * Khung trải nghiệm 3D / AR bằng iframe Sketchfab.
- * Tự co giãn theo tỉ lệ khung (4/3 trên mobile, 16/9 trên màn lớn) và căn giữa.
+ * Khung trải nghiệm 3D / AR bằng thẻ <model-viewer> của Google.
+ * Trên điện thoại, người dùng bấm nút để mở camera sau và đặt mô hình xuống mặt bàn ngoài đời thật.
  */
-export function ARViewer({ title, src, href, authorName, authorUrl }: ARViewerProps) {
-  const linkClass = "font-semibold text-accent transition-colors hover:text-accent-hover";
+export function ARViewer({ src, alt = "Mô hình 3D sản phẩm", poster }: ARViewerProps) {
+  // Nạp web component ở phía client để tránh lỗi customElements khi server-render.
+  React.useEffect(() => {
+    void import("@google/model-viewer");
+  }, []);
 
   return (
     <div className="mx-auto w-full max-w-3xl">
-      <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-charcoal sm:aspect-video">
-        <iframe
-          title={title}
+      <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-surface-muted sm:aspect-video">
+        <model-viewer
           src={src}
-          className="absolute inset-0 h-full w-full"
-          frameBorder={0}
-          allow="autoplay; fullscreen; xr-spatial-tracking; web-share"
-          allowFullScreen
-        />
-      </div>
-      <p className="mt-3 text-center text-xs text-muted">
-        <a href={href} target="_blank" rel="nofollow noopener noreferrer" className={linkClass}>
-          {title}
-        </a>{" "}
-        by{" "}
-        <a href={authorUrl} target="_blank" rel="nofollow noopener noreferrer" className={linkClass}>
-          {authorName}
-        </a>{" "}
-        on{" "}
-        <a
-          href="https://sketchfab.com"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          className={linkClass}
+          alt={alt}
+          poster={poster}
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          ar-scale="fixed"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1.2"
+          shadow-softness="0.8"
+          className="block h-full w-full"
         >
-          Sketchfab
-        </a>
-      </p>
+          <button
+            type="button"
+            slot="ar-button"
+            className="absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-sm bg-accent px-4 py-2.5 text-xs font-semibold uppercase tracking-widest text-accent-foreground shadow-lg transition-colors hover:bg-accent-hover"
+          >
+            <Camera className="size-4" />
+            Mở Camera xem ngoài đời thật (AR)
+          </button>
+        </model-viewer>
+      </div>
     </div>
   );
 }

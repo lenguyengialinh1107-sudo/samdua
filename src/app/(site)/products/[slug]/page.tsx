@@ -182,16 +182,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
       <section className="mt-16">
         <h2 className="font-serif text-2xl">Trải nghiệm 3D / AR</h2>
         <p className="mt-2 text-sm text-muted">
-          Xoay, phóng to hoặc xem sản phẩm trong không gian thực bằng thực tế ảo tăng cường (AR).
+          Xoay, phóng to mô hình 3D, hoặc trên điện thoại bấm nút để mở camera và đặt sản phẩm xuống
+          mặt bàn ngoài đời thật (AR).
         </p>
         <div className="mt-6">
-          <ARViewer
-            title="Canon PowerShot G9 X Mark II Digital Camera"
-            src="https://sketchfab.com/models/c91d721ba8c6499381005d9fa608927d/embed?autostart=1"
-            href="https://sketchfab.com/3d-models/canon-powershot-g9-x-mark-ii-digital-camera-c91d721ba8c6499381005d9fa608927d"
-            authorName="lion.gelders"
-            authorUrl="https://sketchfab.com/lion.gelders"
-          />
+          <ARViewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" />
         </div>
       </section>
 
