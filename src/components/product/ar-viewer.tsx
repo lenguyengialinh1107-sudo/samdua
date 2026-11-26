@@ -15,6 +15,9 @@ interface ARViewerProps {
 /**
  * Khung trải nghiệm 3D / AR bằng thẻ <model-viewer> của Google.
  * Trên điện thoại, người dùng bấm nút để mở camera sau và đặt mô hình xuống mặt bàn ngoài đời thật.
+ *
+ * `scale="0.0008"`: mô hình gốc rộng ~122 đơn vị; hệ số này quy đổi về đúng kích thước
+ * thực tế (Canon PowerShot G9 X Mark II ~98mm ngang) khi đặt vào AR.
  */
 export function ARViewer({ src, alt = "Mô hình 3D sản phẩm", poster }: ARViewerProps) {
   // Nạp web component ở phía client để tránh lỗi customElements khi server-render.
@@ -29,6 +32,7 @@ export function ARViewer({ src, alt = "Mô hình 3D sản phẩm", poster }: ARV
           src={src}
           alt={alt}
           poster={poster}
+          scale="0.0008"
           ar
           ar-modes="webxr scene-viewer quick-look"
           ar-scale="fixed"

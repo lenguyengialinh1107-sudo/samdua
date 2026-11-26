@@ -8,6 +8,8 @@ type ModelViewerAttributes = HTMLAttributes<HTMLElement> & {
   src?: string;
   alt?: string;
   poster?: string;
+  /** Tỷ lệ mô hình (số hoặc chuỗi 3 giá trị), dùng để chỉnh kích thước thực tế khi đặt vào AR. */
+  scale?: string;
   ar?: boolean;
   "ar-modes"?: string;
   "ar-scale"?: "auto" | "fixed";

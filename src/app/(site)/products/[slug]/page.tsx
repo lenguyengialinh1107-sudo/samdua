@@ -186,7 +186,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           mặt bàn ngoài đời thật (AR).
         </p>
         <div className="mt-6">
-          <ARViewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" />
+          <ARViewer src="/models/camera.glb" />
         </div>
       </section>
 
