@@ -21,6 +21,8 @@ type ModelViewerAttributes = HTMLAttributes<HTMLElement> & {
   "shadow-intensity"?: number | string;
   "shadow-softness"?: number | string;
   "camera-orbit"?: string;
+  "camera-target"?: string;
+  bounds?: string;
   "field-of-view"?: string;
   "environment-image"?: string;
   exposure?: number | string;
