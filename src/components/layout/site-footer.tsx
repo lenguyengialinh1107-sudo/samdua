@@ -29,7 +29,14 @@ export function SiteFooter() {
           <address className="not-italic text-sm text-muted">
             <span className="block">{site.address}</span>
             <span className="block">Hotline: {site.hotline}</span>
-            <span className="block">{site.email}</span>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="block hover:text-accent"
+            >
+              Instagram: @secondshot.frames
+            </a>
             <span className="block">{site.workingHours}</span>
           </address>
         </div>

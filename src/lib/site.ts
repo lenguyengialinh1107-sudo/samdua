@@ -19,7 +19,7 @@ export const site = {
   workingHours: "09:00 – 19:00 (Thứ 2 – Thứ 7)",
   social: {
     facebook: "https://facebook.com/",
-    instagram: "https://instagram.com/",
+    instagram: "https://www.instagram.com/secondshot.frames/",
   },
   /** Thông tin chuyển khoản thủ công — dữ liệu demo, sửa lại trước khi dùng thật. */
   bank: {
